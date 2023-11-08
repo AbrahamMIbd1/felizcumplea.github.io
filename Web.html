@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELIZ CUMPLEAÑOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./IMG/patron-de-diseno-sobre-corazones-globos-flores-besos-osos-y-regalos_2560x1440_xtrafondos.com.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            overflow: hidden;
+            zoom: 55%;
+        }
+
+        header {
+            background-color: #ff6b6b;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        #album {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gif-container {
+            max-width: 100%;
+            display: none;
+        }
+
+        .gif-container img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #ff4d4d;
+        }
+
+        @media (max-width: 1200px) {
+            .gif-container {
+                max-width: 100%;
+            }
+
+            #album {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        <h1>FELIZ CUMPLEAÑOS</h1>
+    </header>
+
+    <div id="album">
+        <div class="gif-container">
+            <img src="./VID/VID-20231107-WA0050.gif">
+        </div>
+
+        <div class="gif-container">
+                <img src="./VID/VID-20231107-WA0054.gif">
+            </div>
+        </div>
+        <div class="gif-container">
+                <img src="./VID/VID-20231107-WA0053.gif">
+            </div>
+        </div>
+        <div class="gif-container">
+                <img src="./VID/VID-20231107-WA0051.gif">
+            </div>
+        </div>
+        <div class="gif-container">
+                <img src="./VID/VID-20231107-WA0057.gif">
+            </div>
+        </div>
+        <div class="gif-container">
+                <img src="./VID/VID-20231107-WA0052.gif">
+            </div>
+        </div>
+        <div class="gif-container">
+                <img src="./VID/Video-de-WhatsApp-2023-11-07-a-las-22.42.10_1553016c.gif">
+            </div>
+        </div>
+        <div class="gif-container">
+                <img src="./VID/Video-de-WhatsApp-2023-11-07-a-las-22.42.12_a6f1d118.gif">
+            </div>
+        </div>
+        <div class="gif-container">
+                <img src="./VID/FINAL.gif">
+            </div>
+        </div>
+        
+    </div>
+     
+     
+    <div style="display: flex; justify-content: space-between; margin: 0;">
+        <button id="anterior">Anterior</button>
+        <button id="siguiente">Siguiente</button>
+    </div>
+
+    <script>
+        const gifs = document.querySelectorAll('.gif-container');
+        let currentGifIndex = 0;
+
+        function mostrarGif(index) {
+            gifs.forEach((gif, i) => {
+                if (i === index) {
+                    gif.style.display = 'block';
+                } else {
+                    gif.style.display = 'none';
+                }
+            });
+        }
+
+        function mostrarSiguienteGif() {
+            currentGifIndex = (currentGifIndex + 1) % gifs.length;
+            mostrarGif(currentGifIndex);
+        }
+
+        function mostrarGifAnterior() {
+            currentGifIndex = (currentGifIndex - 1 + gifs.length) % gifs.length;
+            mostrarGif(currentGifIndex);
+        }
+
+        document.getElementById('siguiente').addEventListener('click', mostrarSiguienteGif);
+        document.getElementById('anterior').addEventListener('click', mostrarGifAnterior);
+
+        mostrarGif(currentGifIndex);
+    </script>
+</body>
+</html>
+
